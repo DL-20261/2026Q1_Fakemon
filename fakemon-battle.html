@@ -349,6 +349,169 @@ h1 {
 .type-Bug     { background:#141e08; color:#90c030; }
 .type-Fighting{ background:#2a0808; color:#e06040; }
 .type-Normal  { background:#181820; color:#c8c8d0; }
+
+/* ═══════════════════════════════════════════════════════════════
+   TEST FAKEMON PANEL
+═══════════════════════════════════════════════════════════════ */
+#tester-panel {
+  width: 100%; max-width: 660px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+#tester-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 14px;
+  background: #141428;
+  cursor: pointer;
+  user-select: none;
+  gap: 8px;
+}
+#tester-header-label {
+  font-family: var(--px); font-size: 7px; color: var(--accent); letter-spacing: 1px;
+}
+#tester-toggle {
+  font-family: var(--px); font-size: 7px; color: var(--muted);
+  background: none; border: 1px solid var(--border); border-radius: 4px;
+  padding: 3px 8px; cursor: pointer; transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+#tester-toggle:hover { color: var(--accent); border-color: var(--accent); }
+#tester-body { padding: 14px; }
+#tester-body.collapsed { display: none; }
+#tester-instructions {
+  font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 10px;
+}
+#tester-instructions strong { color: var(--text); }
+#json-input {
+  width: 100%; height: 180px;
+  background: #060610; color: #a0d0ff;
+  border: 1.5px solid #2a2a50; border-radius: var(--rs);
+  padding: 10px 12px; font-family: 'Courier New', monospace; font-size: 11px;
+  line-height: 1.6; resize: vertical; outline: none;
+  transition: border-color 0.15s;
+}
+#json-input:focus { border-color: var(--accent); }
+#json-input::placeholder { color: #30305a; }
+#tester-run-btn {
+  display: block; width: 100%; margin-top: 10px;
+  font-family: var(--px); font-size: 8px; letter-spacing: 1px;
+  padding: 11px; background: #1a1a40; color: var(--accent);
+  border: 1.5px solid var(--accent); border-radius: var(--r);
+  cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+#tester-run-btn:hover { background: var(--accent); color: var(--bg); }
+#tester-run-btn:disabled { opacity: 0.4; cursor: default; }
+
+/* Report */
+#tester-report { margin-top: 14px; animation: fadeIn 0.2s ease; }
+.report-hero {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--card); border: 1.5px solid var(--border);
+  border-radius: var(--r); padding: 14px 16px; margin-bottom: 12px;
+}
+.report-emoji { font-size: 52px; line-height: 1; flex-shrink: 0; }
+.report-info { flex: 1; min-width: 0; }
+.report-name {
+  font-family: var(--px); font-size: 10px; color: var(--text);
+  letter-spacing: 1px; margin-bottom: 4px; word-break: break-all;
+}
+.report-meta { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.report-meta span { color: var(--text); }
+.power-bar-wrap { margin-top: 4px; }
+.power-bar-label {
+  display: flex; justify-content: space-between;
+  font-family: var(--px); font-size: 7px; color: var(--muted); margin-bottom: 4px;
+}
+.power-bar-track {
+  background: #111122; border-radius: 4px; height: 10px;
+  overflow: hidden; border: 1px solid var(--border);
+}
+.power-bar-fill {
+  height: 100%; border-radius: 4px;
+  transition: width 0.7s cubic-bezier(0.22,0.61,0.36,1);
+}
+.power-rating {
+  font-family: var(--px); font-size: 8px; margin-top: 5px; display: block;
+}
+
+.report-stats-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px;
+}
+.stat-cell {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--rs);
+  padding: 8px 10px; text-align: center;
+}
+.stat-cell .sc-label { font-size: 9px; color: var(--muted); margin-bottom: 3px; }
+.stat-cell .sc-val   { font-family: var(--px); font-size: 10px; color: var(--text); }
+.stat-cell .sc-bar   {
+  height: 4px; border-radius: 2px; margin-top: 4px;
+  background: var(--border); overflow: hidden;
+}
+.stat-cell .sc-fill  { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
+
+.report-moves { margin-bottom: 12px; }
+.report-section-title {
+  font-family: var(--px); font-size: 7px; color: var(--muted);
+  letter-spacing: 1px; margin-bottom: 8px;
+}
+.move-row {
+  display: flex; align-items: flex-start; gap: 8px;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--rs);
+  padding: 8px 10px; margin-bottom: 6px; font-size: 12px;
+}
+.move-row:last-child { margin-bottom: 0; }
+.move-row-name { font-weight: 600; color: var(--text); min-width: 0; flex: 1; }
+.move-row-detail { font-size: 10px; color: var(--muted); margin-top: 1px; }
+.move-row-badge {
+  font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 4px;
+  border: 1px solid; white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+}
+.mb-fast   { background:#0a2010; color:#56c87a; border-color:#56c87a; }
+.mb-medium { background:#2a2200; color:#f5c842; border-color:#f5c842; }
+.mb-slow   { background:#2a0808; color:#e85d5d; border-color:#e85d5d; }
+
+.report-issues { margin-bottom: 4px; }
+.issue-row {
+  display: flex; align-items: flex-start; gap: 8px;
+  padding: 7px 10px; border-radius: var(--rs); margin-bottom: 5px;
+  font-size: 12px; line-height: 1.5;
+}
+.issue-row:last-child { margin-bottom: 0; }
+.issue-error { background: rgba(160,20,20,0.18); border: 1px solid #6a2020; }
+.issue-error .issue-icon { color: #ff6060; }
+.issue-error .issue-msg  { color: #ff9090; }
+.issue-warn  { background: rgba(140,100,0,0.14); border: 1px solid #504010; }
+.issue-warn  .issue-icon { color: #f5c842; }
+.issue-warn  .issue-msg  { color: #d0a030; }
+.issue-ok    { background: rgba(0,100,60,0.14); border: 1px solid #1a4a28; }
+.issue-ok    .issue-icon { color: #56c87a; }
+.issue-ok    .issue-msg  { color: #80c890; }
+.issue-icon  { flex-shrink: 0; font-weight: 700; }
+
+.report-type-table { margin-bottom: 12px; }
+.type-matchup-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 5px;
+}
+.type-cell {
+  text-align: center; padding: 5px 4px; border-radius: var(--rs);
+  border: 1px solid var(--border); font-size: 10px;
+}
+.type-cell .tc-type  { font-weight: 600; margin-bottom: 2px; }
+.type-cell .tc-mult  { font-family: var(--px); font-size: 8px; }
+.tc-super { background: rgba(0,100,60,0.2);  border-color: #2a6040; }
+.tc-super .tc-mult  { color: #56c87a; }
+.tc-weak  { background: rgba(160,20,20,0.18); border-color: #6a2020; }
+.tc-weak  .tc-mult  { color: #ff6060; }
+.tc-norm  { background: var(--card); }
+.tc-norm  .tc-mult  { color: var(--muted); }
+
+.report-computing {
+  text-align: center; padding: 20px;
+  font-family: var(--px); font-size: 8px; color: var(--muted); letter-spacing: 1px;
+}
 </style>
 </head>
 <body>
@@ -382,6 +545,35 @@ h1 {
 </div>
 
 <div id="screen-loading">loading fakemon…</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     TEST FAKEMON PANEL
+     Students: Paste your fakemon JSON here to check for errors
+     and see your power level BEFORE adding it to the class game!
+════════════════════════════════════════════════════════════════ -->
+<div id="tester-panel">
+  <div id="tester-header" onclick="toggleTester()">
+    <span id="tester-header-label">🧪 TEST YOUR FAKEMON</span>
+    <button id="tester-toggle" onclick="event.stopPropagation();toggleTester()">SHOW ▼</button>
+  </div>
+  <div id="tester-body" class="collapsed">
+    <p id="tester-instructions">
+      <strong>Paste the entire contents of your .json file below</strong> and click Analyze.
+      You'll get a full report: errors, warnings, stats, moves, type matchups, and your power level.
+      Fix any red errors before submitting your pull request!
+    </p>
+    <textarea id="json-input" spellcheck="false" placeholder='Paste your fakemon JSON here, e.g.:
+{
+  "id": "myfakemon",
+  "name": "MyFakemon",
+  "type": "Fire",
+  "emoji": "🔥",
+  ...
+}'></textarea>
+    <button id="tester-run-btn" onclick="runTester()">▶ ANALYZE FAKEMON</button>
+    <div id="tester-report"></div>
+  </div>
+</div>
 
 <div id="screen-select" class="hidden">
   <h2>▸ pick YOUR fakemon</h2>
@@ -1385,6 +1577,235 @@ document.getElementById('play-again-btn').onclick = () => {
   show('screen-select');
   state = null;
 };
+
+// ════════════════════════════════════════════════════════════════════════
+//  TEST FAKEMON PANEL
+// ════════════════════════════════════════════════════════════════════════
+
+let testerCollapsed = true;
+
+function toggleTester() {
+  testerCollapsed = !testerCollapsed;
+  document.getElementById('tester-body').classList.toggle('collapsed', testerCollapsed);
+  document.getElementById('tester-toggle').textContent = testerCollapsed ? 'SHOW ▼' : 'HIDE ▲';
+}
+
+async function runTester() {
+  const raw     = document.getElementById('json-input').value.trim();
+  const report  = document.getElementById('tester-report');
+  const btn     = document.getElementById('tester-run-btn');
+
+  if (!raw) {
+    report.innerHTML = '<div class="issue-row issue-warn"><span class="issue-icon">⚠</span><span class="issue-msg">Paste your JSON first!</span></div>';
+    return;
+  }
+
+  // ── Step 1: Parse JSON ────────────────────────────────────────────────
+  let data;
+  try {
+    data = JSON.parse(raw);
+  } catch (e) {
+    // Show a helpful parse error with context
+    let hint = e.message;
+    let contextHtml = '';
+    const posMatch = e.message.match(/position (\d+)/);
+    if (posMatch) {
+      const pos     = parseInt(posMatch[1]);
+      const before  = raw.substring(Math.max(0, pos - 40), pos);
+      const at      = raw.substring(pos, pos + 1) || '(end of file)';
+      const after   = raw.substring(pos + 1, pos + 40);
+      contextHtml = `
+        <div style="margin-top:8px;background:#0a0a1a;border-radius:var(--rs);padding:10px;font-family:'Courier New',monospace;font-size:11px;line-height:1.7;">
+          <span style="color:#555580">${escHtmlDebug(before)}</span><span style="background:#6a0000;color:#ff9090;padding:0 2px;border-radius:2px;">${escHtmlDebug(at)}</span><span style="color:#555580">${escHtmlDebug(after)}</span>
+        </div>
+        <div style="margin-top:6px;font-size:11px;color:#d0a030;">
+          💡 Common causes: missing comma between fields, extra comma at the end, unmatched <code>{</code> or <code>[</code>, or a missing quote.
+        </div>`;
+    }
+    report.innerHTML = `
+      <div class="issue-row issue-error" style="flex-direction:column;align-items:flex-start;">
+        <div style="display:flex;gap:8px;align-items:center;"><span class="issue-icon">✗</span><span class="issue-msg" style="font-weight:700;">JSON Syntax Error — cannot parse your file</span></div>
+        <div style="margin-top:4px;font-size:11px;color:#ff9090;">${escHtmlDebug(hint)}</div>
+        ${contextHtml}
+      </div>`;
+    return;
+  }
+
+  // ── Step 2: Validate structure ────────────────────────────────────────
+  const { errors, warnings, valid } = FakemonScorer.validateFakemon(data);
+
+  // ── Step 3: Build the report (power calc if valid) ────────────────────
+  report.innerHTML = '<div class="report-computing">⚙ computing power level… (this takes a moment)</div>';
+  btn.disabled = true;
+
+  // yield to browser so the "computing" message renders before the heavy sync work
+  await new Promise(r => setTimeout(r, 30));
+
+  let power = null;
+  if (valid) {
+    power = FakemonScorer.calcPowerLevel(data);
+  }
+
+  btn.disabled = false;
+  report.innerHTML = buildReport(data, errors, warnings, power);
+}
+
+function buildReport(data, errors, warnings, power) {
+  const ALL_TYPES = ['Fire','Water','Air','Earth','Electric','Ice','Poison','Dark','Ghost','Metal','Nature','Normal'];
+
+  // ── Hero card ─────────────────────────────────────────────────────────
+  const powerColor = power === null ? '#555580'
+    : power >= 70 ? '#e85d5d'
+    : power >= 50 ? '#e8943a'
+    : power >= 30 ? '#f5c842'
+    : '#56c87a';
+  const powerRating = power === null ? '— (fix errors first)'
+    : power >= 75 ? '🔥 Very Strong'
+    : power >= 55 ? '⚡ Above Average'
+    : power >= 40 ? '⚖️ Balanced'
+    : power >= 25 ? '🌿 Below Average'
+    : '🐣 Very Weak';
+
+  const typeClass = data.type ? `type-${data.type}` : '';
+
+  let heroHtml = `
+    <div class="report-hero">
+      <div class="report-emoji">${data.emoji || '❓'}</div>
+      <div class="report-info">
+        <div class="report-name">${escHtmlDebug(data.name || '(no name)')} <span class="fighter-type ${typeClass}" style="font-size:10px;">${escHtmlDebug(data.type || '?')}</span></div>
+        <div class="report-meta">id: <span>${escHtmlDebug(data.id || '?')}</span> &nbsp;·&nbsp; by <span>${escHtmlDebug(data.createdBy || '?')}</span></div>
+        ${data.description ? `<div style="font-size:11px;color:var(--muted);margin-top:2px;font-style:italic;">"${escHtmlDebug(data.description)}"</div>` : ''}
+        <div class="power-bar-wrap">
+          <div class="power-bar-label">
+            <span>POWER LEVEL</span>
+            <span style="color:${powerColor}">${power !== null ? power : '—'} / 100</span>
+          </div>
+          <div class="power-bar-track">
+            <div class="power-bar-fill" style="width:${power ?? 0}%;background:${powerColor};"></div>
+          </div>
+          <span class="power-rating" style="color:${powerColor}">${powerRating}</span>
+        </div>
+      </div>
+    </div>`;
+
+  // ── Issues (errors + warnings + ok) ──────────────────────────────────
+  let issuesHtml = `<div class="report-issues"><div class="report-section-title">▸ VALIDATION RESULTS</div>`;
+  if (errors.length === 0 && warnings.length === 0) {
+    issuesHtml += `<div class="issue-row issue-ok"><span class="issue-icon">✓</span><span class="issue-msg">No errors or warnings — your JSON looks great!</span></div>`;
+  }
+  errors.forEach(e => {
+    issuesHtml += `<div class="issue-row issue-error"><span class="issue-icon">✗</span><span class="issue-msg">${escHtmlDebug(e)}</span></div>`;
+  });
+  warnings.forEach(w => {
+    issuesHtml += `<div class="issue-row issue-warn"><span class="issue-icon">⚠</span><span class="issue-msg">${escHtmlDebug(w)}</span></div>`;
+  });
+  if (errors.length > 0) {
+    issuesHtml += `<div class="issue-row issue-error" style="margin-top:4px;"><span class="issue-icon">!</span><span class="issue-msg" style="font-weight:700;">Fix all red errors before submitting your pull request. Power level cannot be calculated until errors are resolved.</span></div>`;
+  }
+  issuesHtml += `</div>`;
+
+  // ── Stats ─────────────────────────────────────────────────────────────
+  const atk = data.atk ?? data.power ?? 100;
+  const hp  = data.hp      ?? 100;
+  const spd = data.speed   ?? 90;
+  const def = data.defense ?? 10;
+  const acc = data.accuracy ?? 90;
+
+  function statBar(val, max, color) {
+    const pct = Math.min(100, Math.round((val / max) * 100));
+    return `<div class="sc-bar"><div class="sc-fill" style="width:${pct}%;background:${color};"></div></div>`;
+  }
+
+  let statsHtml = `<div class="report-stats-grid">
+    <div class="stat-cell"><div class="sc-label">❤️ HP</div><div class="sc-val">${hp}</div>${statBar(hp, 200, '#56c87a')}</div>
+    <div class="stat-cell"><div class="sc-label">⚔️ ATK</div><div class="sc-val">${atk}</div>${statBar(atk, 200, '#e85d5d')}</div>
+    <div class="stat-cell"><div class="sc-label">💨 SPEED</div><div class="sc-val">${spd}</div>${statBar(spd, 150, '#80c0ff')}</div>
+    <div class="stat-cell"><div class="sc-label">🛡️ DEF</div><div class="sc-val">${def}%</div>${statBar(def, 80, '#f5c842')}</div>
+    <div class="stat-cell"><div class="sc-label">🎯 ACC</div><div class="sc-val">${acc}%</div>${statBar(acc, 100, '#d890ff')}</div>
+    <div class="stat-cell"><div class="sc-label">🃏 MOVES</div><div class="sc-val">${Array.isArray(data.moves) ? data.moves.length : 0}</div>${statBar(Array.isArray(data.moves) ? data.moves.length : 0, 8, '#e8943a')}</div>
+  </div>`;
+
+  // ── Moves ─────────────────────────────────────────────────────────────
+  let movesHtml = '';
+  if (Array.isArray(data.moves) && data.moves.length > 0) {
+    movesHtml = `<div class="report-moves"><div class="report-section-title">▸ MOVES</div>`;
+    data.moves.forEach((m, i) => {
+      const spd    = m.speed || 'medium';
+      const isHeal = m.damage && m.damage[1] < 0;
+      const hasDmg = m.damage && m.damage[1] > 0;
+      const dmgStr = isHeal ? `heals ${Math.abs(m.damage[0])} HP`
+        : hasDmg ? `${m.damage[0]}–${m.damage[1]} dmg`
+        : 'no damage';
+
+      // Build status tags
+      let statusStr = '';
+      const statuses = FakemonScorer.getMoveStatuses(m);
+      if (statuses.length > 0) {
+        statusStr = ' · ' + statuses.map(se =>
+          `${se.status}${se.statusChance && se.statusChance < 1 ? ` (${Math.round(se.statusChance*100)}%)` : ''}${se.statTarget ? ` [${se.statTarget}]` : ''}`
+        ).join(' + ');
+      }
+
+      // Warn if move looks wrong
+      let moveWarn = '';
+      if (!m.id) moveWarn += ' <span style="color:#f5c842;font-size:9px;">⚠ no id</span>';
+      if (!hasDmg && !isHeal && statuses.length === 0) moveWarn += ' <span style="color:#e85d5d;font-size:9px;">✗ does nothing!</span>';
+
+      movesHtml += `
+        <div class="move-row">
+          <div style="flex:1;min-width:0;">
+            <div class="move-row-name">${escHtmlDebug(m.name || m.id || `Move ${i+1}`)}${moveWarn}</div>
+            <div class="move-row-detail">${dmgStr}${statusStr}</div>
+            ${m.desc ? `<div class="move-row-detail" style="font-style:italic;">${escHtmlDebug(m.desc)}</div>` : ''}
+          </div>
+          <span class="move-row-badge mb-${spd}">${spd}</span>
+        </div>`;
+    });
+    movesHtml += '</div>';
+  }
+
+  // ── Type matchup table ────────────────────────────────────────────────
+  let typeHtml = '';
+  if (data.type) {
+    typeHtml = `<div class="report-type-table"><div class="report-section-title">▸ YOUR TYPE MATCHUPS (attacking)</div>
+      <div class="type-matchup-grid">`;
+    ALL_TYPES.forEach(defType => {
+      const mult = FakemonScorer.typeMultiplier(data.type, defType);
+      const cls  = mult === 2 ? 'tc-super' : mult === 0.5 ? 'tc-weak' : 'tc-norm';
+      const label = mult === 2 ? '2× SUPER' : mult === 0.5 ? '½× WEAK' : '1× normal';
+      typeHtml += `<div class="type-cell ${cls}"><div class="tc-type">${defType}</div><div class="tc-mult">${label}</div></div>`;
+    });
+    typeHtml += '</div></div>';
+  }
+
+  // ── Comparison to class ───────────────────────────────────────────────
+  let compHtml = '';
+  if (power !== null && ALL_FAKEMON.length > 0) {
+    const sorted    = [...ALL_FAKEMON].sort((a, b) => a._power - b._power);
+    const rank      = sorted.filter(f => f._power < power).length + 1;
+    const total     = sorted.length;
+    const strongest = sorted[sorted.length - 1];
+    const weakest   = sorted[0];
+    const avg       = Math.round(sorted.reduce((s, f) => s + f._power, 0) / total);
+    compHtml = `
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:12px;">
+        <div class="report-section-title">▸ HOW YOU COMPARE TO THE CLASS</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;">
+          Your power: <strong style="color:${powerColor}">${power}</strong> &nbsp;·&nbsp;
+          Class avg: <strong style="color:var(--text)">${avg}</strong> &nbsp;·&nbsp;
+          Class rank: <strong style="color:var(--text)">#${rank} of ${total}</strong><br>
+          Strongest in class: <strong style="color:var(--red)">${escHtmlDebug(strongest.name)} (${strongest._power})</strong> &nbsp;·&nbsp;
+          Weakest: <strong style="color:var(--green)">${escHtmlDebug(weakest.name)} (${weakest._power})</strong>
+        </div>
+      </div>`;
+  } else if (power !== null) {
+    compHtml = `<div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;margin-bottom:12px;font-size:11px;color:var(--muted);">
+      Class comparison will show once the game loads other Fakemon.
+    </div>`;
+  }
+
+  return heroHtml + issuesHtml + compHtml + statsHtml + movesHtml + typeHtml;
+}
 
 // ════════════════════════════════════════════════════════════════════════
 //  BOOT
