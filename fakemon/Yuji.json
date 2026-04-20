@@ -45,7 +45,7 @@
       "desc":         "using blood manipulation shoots out a beam of blood cutting anyone who it hits",
       "speed":        "fast",
       "damage": [15, 50,
-      "status":       "statup",
+      "status"       "statup",
       "statusChance": 1.0
     },
     {
