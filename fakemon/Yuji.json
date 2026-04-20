@@ -27,7 +27,7 @@
       "desc":         "Yuji grabs his opponent either on the legs or arms and uses cleave cutting their body and their soul",
       "speed":        "medium",
       "damage": [25,35],
-      "status":       "null",
+      "status":       "statdwn",
       "statusChance": 0.3
     },
     {
@@ -64,8 +64,8 @@
       "speed": "fast",
       "damage": [25, 70],
       "statuses": [
-        { "status": "statdwn",  "statusChance": 0.5 },
-        { "status": "Sleep", "statusChance": 1.0 }
+        { "status": "sleep",  "statusChance": 0.5 },
+        { "status": "statdwn", "statusChance": 1.0 }
       ]
     }
 
