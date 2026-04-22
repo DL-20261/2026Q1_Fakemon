@@ -1,0 +1,80 @@
+{
+  "id": "dylanlange_1",
+  "name": "Chicken...",
+  "createdBy": "Dylan Kevin Lange",
+  "emoji": "🐔",
+  "type": "Normal",
+  "hp": 50,
+  "atk": 111,
+  "speed": 60,
+  "defense": 0,
+  "accuracy": 80,
+  "color": "#FFFF00",
+  "description": "A chicken.. thats it, just a chicken, it shoots eggs I guess but thats it",
+  "moves": [
+    {
+      "id": "dylanlange_m1",
+      "name": "Egg scrambler",
+      "speed": "fast",
+      "damage": [
+        8,
+        12
+      ],
+      "status": "confuse",
+      "statusChance": 0.5,
+      "desc": "A egg shoots out of the chicken, doesn't do much 8-12 dmg but it can confuse"
+    },
+    {
+      "id": "dylanlange_m2",
+      "name": "peck",
+      "speed": "slow",
+      "damage": [
+        26,
+        30
+      ],
+      "status": null,
+      "statusChance": 0,
+      "desc": "The chicken pecks you, it could hit your eye and that might hurt a bit"
+    },
+    {
+      "id": "dylanlange_m3",
+      "name": "grains",
+      "speed": "medium",
+      "damage": [
+        0,
+        0
+      ],
+      "status": "statup",
+      "statusChance": 1,
+      "desc": "helps your stats but doesn't heal",
+      "statTarget": "atk"
+    },
+    {
+      "id": "dylanlange_m4",
+      "name": "❤‍🔥🔥 spontaneously combust 🔥❤‍🔥",
+      "speed": "fast",
+      "damage": [
+        100,
+        200
+      ],
+      "status": "burn",
+      "statusChance": 1,
+      "desc": "nooo chickenn 😭 the chicken spontaneously combusts burning anything it touches"
+    },
+    {
+      "id": "dylanlange_m5",
+      "name": "rapid egg scrambles",
+      "speed": "fast",
+      "damage": [
+        24,
+        34
+      ],
+      "status": "statdwn",
+      "statusChance": 1,
+      "desc": "shoots out three eggs quickly, also adds statdwn for accuracy",
+      "statTarget": "accuracy"
+    }
+  ]
+}
+
+|
